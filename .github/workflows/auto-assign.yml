@@ -1,8 +1,8 @@
-name: Auto Assign Homework
-
-# Set to true to add assignees to pull requests
-addAssignees: true
-
-# A list of reviewers to be added to pull requests (GitHub user name)
-reviewers:
-  - mrgreyves
+name: 'Auto Assign Homework'
+on:
+   pull_request:
+     jobs:
+         add-reviews:
+             runs-on: ubuntu-latest
+             steps:
+             - uses: kentaro-m/auto-assign-action@v1.2.0
