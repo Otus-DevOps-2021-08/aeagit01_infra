@@ -24,6 +24,8 @@ Host <IP or name bastion host>
     IdentityFile ~/.ssh/appuser
     User appuser
 #================== +++++ ====================
+
 В текущем задании:
-IP bastion host  - 193.32.218.50
-IP internal host - 10.128.0.5
+
+bastion_IP = 62.84.112.64
+someinternalhost_IP = 10.128.0.5
