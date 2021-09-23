@@ -29,3 +29,11 @@ Host <IP or name bastion host>
 
 bastion_IP = 62.84.112.64
 someinternalhost_IP = 10.128.0.5
+
+#================== +++++ ====================
+cloud-testapp
+
+testapp_IP = 62.84.113.213
+testapp_port = 9292
+
+#================== +++++ ====================
