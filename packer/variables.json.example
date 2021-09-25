@@ -1,0 +1,22 @@
+{
+"variables" :{
+    "folder_id": "b1gdo1fjgj1e52ucg1cs",
+    "source_image_family": "ubuntu-1604-lts",
+    "service_account_key_file": "",
+    "platform_id": "standard-v1",
+    "ssh_username": "ubuntu",
+    "subnet_id": "e9blpaes323qg5anh1ma"
+    },
+
+"builders": [
+    {
+      "type": "yandex",
+      "folder_id": "{{`folder_id`}}",
+      "source_image_family": "{{`source_image_family`}}",
+      "service_account_key_file": "/Users/aea/.yc/key.json",
+      "platform_id": "{{`platform_id`}}",
+      "ssh_username": "{{`ssh_username`}}",
+      "subnet_id": "{{`subnet_id`}}"
+    }
+  ]
+}
