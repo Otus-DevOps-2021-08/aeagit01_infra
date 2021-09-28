@@ -31,9 +31,23 @@ bastion_IP = 62.84.112.64
 someinternalhost_IP = 10.128.0.5
 
 #================== +++++ ====================
-cloud-testapp
+#HW 04
+#cloud-testapp
 
-testapp_IP = 62.84.113.213
+testapp_IP = 62.84.119.242
 testapp_port = 9292
 
-#================== +++++ ====================
+#create instance
+
+yc compute instance create \
+  --name reddit-app \
+  --hostname reddit-app \
+  --memory=4 \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+  --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+  --metadata-from-file user-data=startup-config.yaml \
+  --metadata serial-port-enable=1
+
+#application start
+
+http://62.84.119.242:9292
