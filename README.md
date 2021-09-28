@@ -34,7 +34,7 @@ someinternalhost_IP = 10.128.0.5
 #HW 04
 #cloud-testapp
 
-testapp_IP = 62.84.119.242
+testapp_IP = 62.84.117.126
 testapp_port = 9292
 
 #create instance
@@ -50,4 +50,4 @@ yc compute instance create \
 
 #application start
 
-http://62.84.119.242:9292
+http://62.84.117.126:9292
