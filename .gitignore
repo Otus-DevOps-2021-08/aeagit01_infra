@@ -1,1 +1,8 @@
 .vscode/settings.json
+variables.json
+*.swp
+test.yaml
+createinst.sh
+last_etag=
+recursive=
+wait_for_change=
