@@ -1,0 +1,11 @@
+[Unit]
+Description="Puma service HW05"
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/puma
+WorkingDirectory=/home/ubuntu/reddit
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
