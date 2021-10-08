@@ -1,19 +1,15 @@
 resource "yandex_lb_target_group" "reddit_lb_group" {
   name = "reddit-lb-group"
 
-  target {
-    subnet_id = var.subnet_id
-    address   = "${yandex_compute_instance.app00.network_interface.0.ip_address}"
+  dynamic "target" {
+    for_each = yandex_compute_instance.app
+    content {
+      subnet_id = var.subnet_id
+      address   = target.value.network_interface[0].ip_address
+    }
   }
-
-  target {
-    subnet_id = var.subnet_id
-    address   = "${yandex_compute_instance.app01.network_interface.0.ip_address}"
-  }
-
   depends_on = [
-    yandex_compute_instance.app00,
-    yandex_compute_instance.app01
+    yandex_compute_instance.app
   ]
 }
 
