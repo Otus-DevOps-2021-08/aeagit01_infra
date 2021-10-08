@@ -31,3 +31,6 @@ variable resouce_zone {
   default     = "ru-central1-a"
 
 }
+variable "count_of_inst" {
+  default = 1
+}
