@@ -34,3 +34,7 @@ variable "resouce_zone" {
 variable "count_of_inst" {
   default = 1
 }
+variable "app_disk_image" {
+  description = "Disk image for reddit app"
+  default     = "reddit-app-base"
+}
