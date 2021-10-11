@@ -5,7 +5,6 @@ variable "public_key_path" {
 variable "private_key" {
   description = "path to private key"
 }
-
 variable "count_of_inst" {
   default = 1
 }

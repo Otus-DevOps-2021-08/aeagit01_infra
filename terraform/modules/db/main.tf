@@ -1,10 +1,3 @@
-terraform {
-   required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-}
 resource "yandex_compute_instance" "db" {
 
   #name = "reddit-app${count.index}"
@@ -18,7 +11,6 @@ resource "yandex_compute_instance" "db" {
     cores  = 2
     memory = 2
   }
-
   boot_disk {
     initialize_params {
       # Указать id образа созданного в предыдущем домашем задании
@@ -33,7 +25,6 @@ resource "yandex_compute_instance" "db" {
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
-
   connection {
     type  = "ssh"
     host  = self.network_interface.0.nat_ip_address
