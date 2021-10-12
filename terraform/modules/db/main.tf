@@ -1,7 +1,15 @@
+/* terraform {
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "~> 0.35"
+    }
+  }
+} */
 resource "yandex_compute_instance" "db" {
 
   #name = "reddit-app${count.index}"
-  name  = "reddit-db"
+  name = "reddit-db"
   #count = var.count_of_inst
   #zone = var.resouce_zone
   labels = {

@@ -1,7 +1,15 @@
+/* terraform {
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "~> 0.35"
+    }
+  }
+} */
 resource "yandex_compute_instance" "app" {
 
   #name = "reddit-app${count.index}"
-  name  = "reddit-app"
+  name = "reddit-app"
   #count = var.count_of_inst
   labels = {
     tags = "reddit-app"
@@ -17,16 +25,18 @@ resource "yandex_compute_instance" "app" {
     }
   }
   network_interface {
-    subnet_id = var.subnet_id    #yandex_vpc_subnet.app-subnet.id
+    subnet_id = var.subnet_id #yandex_vpc_subnet.app-subnet.id
     nat       = true
   }
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
-
+}
+resource "null_resource" "app" {
+  count = var.puma_deploy ? 1 : 0
   connection {
     type  = "ssh"
-    host  = self.network_interface.0.nat_ip_address
+    host  = yandex_compute_instance.app.network_interface.0.nat_ip_address
     user  = "ubuntu"
     agent = false
     # путь до приватного ключа
@@ -34,19 +44,16 @@ resource "yandex_compute_instance" "app" {
   }
 
   provisioner "file" {
-    source      = "../files/puma.service"
+    source      = "${path.module}/files/puma.service"
     destination = "/tmp/puma.service"
 
   }
-  provisioner "local-exec" {
-    interpreter = ["/bin/bash", "-c"]
-
-    command = <<-EOF
-    sleep 30
-    EOF
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'DATABASE_URL=${var.db_internal_ip}:${var.database_port}'>>/tmp/app.env && sleep 30"
+    ]
   }
   provisioner "remote-exec" {
-    script = "../files/deploy.sh"
+    script = "${path.module}/files/deploy.sh"
   }
-
 }

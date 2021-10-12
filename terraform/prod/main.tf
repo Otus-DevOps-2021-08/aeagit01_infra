@@ -1,3 +1,11 @@
+/* terraform {
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "~> 0.35"
+    }
+  }
+} */
 provider "yandex" {
   service_account_key_file = var.service_account_key_file
   cloud_id                 = var.cloud_id
@@ -10,6 +18,10 @@ module "app" {
   app_disk_image  = var.app_disk_image
   subnet_id       = var.subnet_id
   private_key     = var.private_key
+  db_internal_ip  = module.db.internal_ip_address_db
+  depends_on = [
+    module.db
+  ]
 }
 module "db" {
   source          = "../modules/db"

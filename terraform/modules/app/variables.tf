@@ -15,3 +15,16 @@ variable "app_disk_image" {
 variable "subnet_id" {
   description = "Subnet"
 }
+variable "db_internal_ip" {
+  default     = "127.0.0.1"
+  description = "internal IP of Database server"
+
+}
+variable "database_port" {
+  default     = "27017"
+  description = "Database server port"
+}
+variable "puma_deploy" {
+  default     = true
+  description = "variable for decided about deploy application"
+}
