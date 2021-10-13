@@ -19,9 +19,13 @@ module "app" {
   subnet_id       = var.subnet_id
   private_key     = var.private_key
   db_internal_ip  = module.db.internal_ip_address_db
+/*
+  //При выполнении отрабатыет нормально, но выдает при тестировании выдается ощибка
+  //из-за предупреждения о том что "оператор, зарезервирован для использования в будущих версиях"
+
   depends_on = [
     module.db
-  ]
+  ] */
 
 }
 module "db" {

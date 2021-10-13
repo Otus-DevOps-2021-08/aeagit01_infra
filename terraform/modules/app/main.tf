@@ -7,13 +7,14 @@
   }
 } */
 resource "yandex_compute_instance" "app" {
-
+  #count = var.count_of_inst
   #name = "reddit-app${count.index}"
   name = "reddit-app"
-  #count = var.count_of_inst
+
   labels = {
     tags = "reddit-app"
   }
+
   resources {
     cores  = 2
     memory = 2
