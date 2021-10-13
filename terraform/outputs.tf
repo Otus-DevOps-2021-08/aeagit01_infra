@@ -1,11 +1,7 @@
-output "external_ip_address_app" {
-
-  value = [for app_inst in yandex_compute_instance.app : "${app_inst.network_interface.0.nat_ip_address}"]
-  #yandex_compute_instance.app.*...
-  #value = ["${yandex_compute_instance.app00.network_interface.0.nat_ip_address}", "${ yandex_compute_instance.app01.network_interface.0.nat_ip_address}"]
-
+output "service_key_out" {
+  value = yandex_storage_bucket.tf-state-bucked.access_key
 }
-output "external_lb_ip_address_app" {
-  #value = "${yandex_lb_network_load_balancer.reddit_lb_host.listener[*].external_address_spec[*].address}" #.internal_address_spec.address
-  value = tolist(tolist(yandex_lb_network_load_balancer.reddit_lb_host.listener)[0].external_address_spec)[0].address
+output "service_key_secret" {
+  value     = yandex_storage_bucket.tf-state-bucked.secret_key
+  sensitive = true
 }
