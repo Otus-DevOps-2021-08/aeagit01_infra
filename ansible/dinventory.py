@@ -44,8 +44,14 @@ class ExampleInventory(object):
 
         return {
             'all': {
-                'hosts': hosts,
-                }
+                'hosts': hosts
+                },
+            'app': {
+                'hosts': [hosts[0]]
+            },
+            'db': {
+                'hosts': [hosts[1]]
+            }
             }
 
     # Empty inventory for testing.
