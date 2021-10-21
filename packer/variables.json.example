@@ -1,7 +1,7 @@
 {
     "folder_id": "FOLDER_ID",
     "source_image_family": "ubuntu-1604-lts",
-    "service_account_key_file": "./key.examples.json",
+    "service_account_key_file": "key.examples.json",
     "ssh_username": "USERNAME",
     "subnet_id": "SUBNET_ID"
 }
