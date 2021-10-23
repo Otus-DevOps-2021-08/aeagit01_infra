@@ -1,0 +1,9 @@
+- name: "Configure app host"
+  hosts: app
+  become: true
+
+  vars:
+    db_host: 10.128.0.14
+
+  roles:
+    - app
