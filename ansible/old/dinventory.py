@@ -40,17 +40,21 @@ class ExampleInventory(object):
         for instance in self.srcdump:
   #          print(instance)
   #          print("=========")
-            hosts.append(instance['network_interfaces'][0]['primary_v4_address']['one_to_one_nat']['address'])
+  #          hosts.append(instance['network_interfaces'][0]['primary_v4_address']['one_to_one_nat']['address'])
+            if 'app' in instance['name']:
+                apphost = instance['network_interfaces'][0]['primary_v4_address']['one_to_one_nat']['address']
+            if 'db' in instance['name']:
+                dbhost = instance['network_interfaces'][0]['primary_v4_address']['one_to_one_nat']['address']
 
         return {
             'all': {
                 'hosts': hosts
                 },
             'app': {
-                'hosts': [hosts[1]]
+                'hosts': [apphost]
             },
             'db': {
-                'hosts': [hosts[0]]
+                'hosts': [dbhost]
             }
             }
 
