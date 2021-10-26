@@ -1,6 +1,6 @@
 ---
 - name: "Deploy application"
-  hosts: app
+  hosts: module_app_app
   become: true
   tasks:
   - name: Install git
