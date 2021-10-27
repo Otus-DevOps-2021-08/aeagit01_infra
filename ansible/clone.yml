@@ -1,6 +1,7 @@
 ---
 - name: Clone
   hosts: module_app_app
+
   tasks:
     - name: Clone repo
       git:
