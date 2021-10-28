@@ -1,5 +1,6 @@
 # aeagit01_infra
 MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?branch=main) *** PR:![event parameter](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?event=pull_request)
+
 #================== +++++ =================== #Ansible - 3
 
 
