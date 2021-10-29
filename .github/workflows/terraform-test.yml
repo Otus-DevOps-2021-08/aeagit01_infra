@@ -37,6 +37,7 @@ jobs:
     - name: Terraform Validate
       id: validate
       run: terraform validate -no-color
+      working-directory: ${{ env.wrk-dir }}
       
   tflint:
     runs-on: ubuntu-latest
@@ -60,6 +61,8 @@ jobs:
 
     - name: TFOP Init TFLint
       run: tflint --init
-
+      working-directory: ${{ env.wrk-dir }}
+      
     - name: TFOP Run TFLint
       run: tflint -f compact
+      working-directory: ${{ env.wrk-dir }}
