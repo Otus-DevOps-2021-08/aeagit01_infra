@@ -30,8 +30,8 @@ jobs:
       
     # next format of command to check
     - name: Terraform Validate
-      with:
-        command: validate
+      id: validate
+      with: 
         target: terraform/
 
   tflint:
