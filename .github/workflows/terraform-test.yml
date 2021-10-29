@@ -14,7 +14,7 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     env:
-      wkr-dir: terraform
+      working-directory: terraform
       
     steps:
     - name: Terraform checkout
