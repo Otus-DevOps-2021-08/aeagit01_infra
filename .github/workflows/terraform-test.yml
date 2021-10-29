@@ -14,7 +14,7 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     env:
-      working-directory: terraform/stage
+      working-directory: terraform
       
     steps:
     - name: Terraform checkout
@@ -22,8 +22,6 @@ jobs:
 
     - name: Terraform setup
       uses: hashicorp/setup-terraform@v1
-      with:
-        path: terraform
 
     - name: Terraform Format
       id: fmt
@@ -32,12 +30,12 @@ jobs:
     - name: Terraform Init
       id: init
       run: terraform init 
-      working-directory: ${{ env.wrk-dir }}
+      working-directory: ${{ env.working-directory }}
       
     - name: Terraform Validate
       id: validate
       run: terraform validate -no-color
-      working-directory: ${{ env.wrk-dir }}
+      working-directory: ${{ env.working-directory }}
       
   tflint:
     runs-on: ubuntu-latest
@@ -61,8 +59,8 @@ jobs:
 
     - name: TFOP Init TFLint
       run: tflint --init
-      working-directory: ${{ env.wrk-dir }}
+      working-directory: ${{ env.working-directory }}
       
     - name: TFOP Run TFLint
       run: tflint -f compact
-      working-directory: ${{ env.wrk-dir }}
+      working-directory: ${{ env.working-directory }}
