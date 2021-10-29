@@ -13,12 +13,17 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      wkr-dir: terraform
+      
     steps:
     - name: Terraform checkout
       uses: actions/checkout@v2
 
     - name: Terraform setup
       uses: hashicorp/setup-terraform@v1
+      with:
+        path: terraform
 
     - name: Terraform Format
       id: fmt
@@ -26,7 +31,8 @@ jobs:
 
     - name: Terraform Init
       id: init
-      run: terraform init
+      run: terraform init 
+      working-directory: ${{ env.wrk-dir }}
       
     - name: Terraform Validate
       id: validate
