@@ -13,6 +13,9 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      working-directory: terraform
+      
     steps:
     - name: Terraform checkout
       uses: actions/checkout@v2
@@ -26,13 +29,14 @@ jobs:
 
     - name: Terraform Init
       id: init
-      run: terraform init
-    # next format of command to check
+      run: terraform init 
+      working-directory: ${{ env.working-directory }}
+      
     - name: Terraform Validate
-      with:
-        command: validate
-        target: terraform/
-
+      id: validate
+      run: terraform validate -no-color
+      working-directory: ${{ env.working-directory }}
+      
   tflint:
     runs-on: ubuntu-latest
     steps:
@@ -55,6 +59,8 @@ jobs:
 
     - name: TFOP Init TFLint
       run: tflint --init
-
+      working-directory: ${{ env.working-directory }}
+      
     - name: TFOP Run TFLint
       run: tflint -f compact
+      working-directory: ${{ env.working-directory }}
