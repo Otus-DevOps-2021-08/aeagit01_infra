@@ -28,12 +28,10 @@ jobs:
       id: init
       run: terraform init
       
-    # next format of command to check
     - name: Terraform Validate
       id: validate
-      with: 
-        target: terraform/
-
+      run: terraform validate -no-color
+      
   tflint:
     runs-on: ubuntu-latest
     steps:
