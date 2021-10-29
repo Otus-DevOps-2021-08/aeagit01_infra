@@ -27,6 +27,7 @@ jobs:
     - name: Terraform Init
       id: init
       run: terraform init
+      
     # next format of command to check
     - name: Terraform Validate
       with:
