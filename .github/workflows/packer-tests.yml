@@ -19,20 +19,27 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # fix backwards incompatibilities in template
-      - name: Fix Template
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: fix
-          target: packer
+      # # fix backwards incompatibilities in template
+      # - name: Fix Template
+      #   uses: hashicorp/packer-github-actions@master
+      #   with:
+      #     command: fix
+      #     target: packer/app.json
 
       # validate templates
-      - name: Validate Template
+      - name: Validate Template app
         uses: hashicorp/packer-github-actions@master
         with:
           command: validate
           arguments: -syntax-only
-          target: packer
+          target: packer/app.json
+
+      - name: Validate Template db
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: packer/db.json
 
       # # build artifact
       # - name: Build Artifact
