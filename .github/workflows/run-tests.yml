@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: create-json
+      uses: jsdaniell/create-json@1.1.2
+      with:
+        name: "key.examples.json"
+        json: '{ "id": "ajeju3ti95vrql9djjit" }'
+
     - name: Checkout this repo
       uses: actions/checkout@v2
       with:
