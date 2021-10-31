@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout this repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
     - name: create-json
       uses: jsdaniell/create-json@1.1.2
       with:
@@ -19,15 +24,11 @@ jobs:
 #        dir: './'
 
     - run: |-
-        git diff
         git config user.name "Evgeny Alpeyev"
         git config user.email "krotpk@gmail.com"
         git diff --quiet || (git add -A && git commit -m "key examples Commit")
 
-    - name: Checkout this repo
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ github.ref }}
+
     - name: Checkout repo with tests
       uses: actions/checkout@v2
       with:
