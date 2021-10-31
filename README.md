@@ -1,7 +1,9 @@
 # aeagit01_infra
+
 MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?branch=main) *** PR:![event parameter](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?event=pull_request)
 
-#================== +++++ =================== #Ansible - 3
+#================== +++++ =================== 
+#Ansible - 3
 1. Создание каталого ролей app и db  в соотвествии с форматом ansible-galaxy
 2. настрока роди db
 3. настройка роли арр
@@ -28,7 +30,8 @@ MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infr
 - https://github.com/marketplace/actions/create-json
   (после создания json необходимо выполнить коммит для дальнейшего использования)
 
-#================== +++++ =================== #Ansible - 2
+#================== +++++ =================== 
+#Ansible - 2
 
 1. Подготовлен playbook со сценирием установки тестового приложения
 2. Подготовлено несколько сценариев с разбиением задач по блокам
@@ -37,7 +40,8 @@ MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infr
 5. созданы playbook-и для заменты bash-скриптов provision
 6. Выполнена проверки работоспособности приложения
 
-#================== +++++ =================== #Ansible - 1
+#================== +++++ ===================
+#Ansible - 1
 
 1. Установка python 2.7
 2. Установка ansible
