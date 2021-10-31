@@ -18,7 +18,11 @@ jobs:
         json: '{ "id": "ajeju3ti95vrql9djjit" }'
 #        dir: './'
 
-    - run: git config --global user.email "krotpk@gmail.com" && git config --global user.name "Evgeny Alpeyev" && git add . && git add --force key.examples.json && git status && git commit -a -m "key examples Commit"
+    - run: |-
+        git diff
+        git config user.name "Evgeny Alpeyev"
+        git config user.email "krotpk@gmail.com"
+        git diff --quiet || (git add -A && git commit -m "key examples Commit")
 
     - name: Checkout this repo
       uses: actions/checkout@v2
