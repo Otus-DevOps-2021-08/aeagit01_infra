@@ -2,9 +2,31 @@
 MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?branch=main) *** PR:![event parameter](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?event=pull_request)
 
 #================== +++++ =================== #Ansible - 3
+1. Создание каталого ролей app и db  в соотвествии с форматом ansible-galaxy
+2. настрока роди db
+3. настройка роли арр
+4. изменение playbook для использования ролей
+5. настройка окружения (environments)
+6. настройка конфигураций stage && prod
+7. реорганизация структуры playbook
+8. подключение Community роли jdauphant.nginx
+9. проверка работы Ansible Vault, подготовка credentials.yml и файла с ключом
+10. настройка работы с динамическим inventory
+11. настройка GitHub action
+      - настройка выполнения packer validate
+      - настройка выполнения terraform validate и tflint
+      - настройка проверки playbooks ansible-lint
+      - добавление в README.md бейджа со статусом билда
+12. настройка создания файла key.examples.json в момент проведения тестов
 
+ссылки:
+- https://docs.ansible.com/ansible/devel/user_guide/vault.html
+- https://docs.github.com/en/actions/learn-github-actions/environment-variables
+- https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsuses
 
-
+- https://medium.com/swlh/how-i-create-my-first-action-and-deployed-to-github-actions-marketplace-8ca519be1ef7
+- https://github.com/marketplace/actions/create-json
+  (после создания json необходимо выполнить коммит для дальнейшего использования)
 
 #================== +++++ =================== #Ansible - 2
 
