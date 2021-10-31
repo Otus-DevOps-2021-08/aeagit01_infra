@@ -16,7 +16,7 @@ jobs:
       with:
         name: "key.examples.json"
         json: '{ "id": "ajeju3ti95vrql9djjit" }'
-        dir: 'ansible/playbook/'
+        dir: 'ansible/playbooks/'
 
     - name: Checkout this repo
       uses: actions/checkout@v2
