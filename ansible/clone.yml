@@ -1,6 +1,10 @@
 ---
 - name: Clone
+<<<<<<< HEAD
   hosts: module_app_app
+=======
+  hosts: app
+>>>>>>> ansible-1
   tasks:
     - name: Clone repo
       git:
