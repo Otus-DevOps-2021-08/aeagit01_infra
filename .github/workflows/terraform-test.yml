@@ -1,0 +1,66 @@
+name: Run terraform tests
+
+on:
+  push:
+    branches-ignore: main
+    #branches:
+    #  - "main"
+  pull_request:
+    branches-ignore: main
+    #branches:
+    #  - "main"
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: terraform
+      
+    steps:
+    - name: Terraform checkout
+      uses: actions/checkout@v2
+
+    - name: Terraform setup
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt -check
+
+    - name: Terraform Init
+      id: init
+      run: terraform init 
+      working-directory: ${{ env.working-directory }}
+      
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+      working-directory: ${{ env.working-directory }}
+      
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: TFOP checkout source code
+
+  #  - uses: actions/cache@v2
+      # name: TFOP Cache plugin dir
+      # with:
+      #   path: ~/.tflint.d/plugins
+      #   key: ${{ matrix.os }}-tflint-${{ hashFiles('.tflint.hcl') }}
+
+    - uses: terraform-linters/setup-tflint@v1
+      name: TFOP  setup TFLint
+      with:
+        tflint_version: v0.29.0
+
+    - name: TFOP Show version
+      run: tflint --version
+
+    - name: TFOP Init TFLint
+      run: tflint --init
+      working-directory: ${{ env.working-directory }}
+      
+    - name: TFOP Run TFLint
+      run: tflint -f compact
+      working-directory: ${{ env.working-directory }}

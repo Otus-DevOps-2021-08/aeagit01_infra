@@ -1,0 +1,7 @@
+- name: "Configure app host"
+  hosts: module_app_app
+  become: true
+
+  roles:
+    - app
+    - jdauphant.nginx

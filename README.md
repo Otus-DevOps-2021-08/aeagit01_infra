@@ -1,29 +1,48 @@
 # aeagit01_infra
-#================== +++++ =================== #Ansible - 2
 
-Подготовлен playbook со сценирием установки тестового приложения
-Подготовлено несколько сценариев с разбиением задач по блокам
-Основной playbook разбит на несколько
-добавлено использование terraform-inventory c github, вснесены исправления в файлы  playbook
-созданы playbook-и для заменты bash-скриптов provision
-Выполнена проверки работоспособности приложения
+MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?branch=main) *** PR:![event parameter](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?event=pull_request)
 
-#================== +++++ =================== #Ansible - 1
+#================== +++++ =================== 
+#Ansible - 3
+1. Создание каталого ролей app и db  в соотвествии с форматом ansible-galaxy
+2. настрока роди db
+3. настройка роли арр
+4. изменение playbook для использования ролей
+5. настройка окружения (environments)
+6. настройка конфигураций stage && prod
+7. реорганизация структуры playbook
+8. подключение Community роли jdauphant.nginx
+9. проверка работы Ansible Vault, подготовка credentials.yml и файла с ключом
+10. настройка работы с динамическим inventory
+11. настройка GitHub action
+      - настройка выполнения packer validate
+      - настройка выполнения terraform validate и tflint
+      - настройка проверки playbooks ansible-lint
+      - добавление в README.md бейджа со статусом билда
+12. настройка создания файла key.examples.json в момент проведения тестов
 
-Установка python 2.7
-Установка ansible
-Создание inventory файла, проверка подключения к хостам с испоьзованием inventory
-Создание ansible.cfg, оптимизация inventory, разнесение хостоа по группам
-Проверка выполнения операций с группами хостов
-Подготовка YANL inventory
-Проверка выполнения комманд с использованием модулей command, shell, git, systemd, service
-Создание playbook, тестирование выполнения задач с использованием playbook (при выполнении задания изменилось состояние признака changed = 1)
-создан файл inventory.json и bash сценарий для его использования содержание сценария: #! bin/bash cat ./inventory.json
-создан сценаний на python для получения данных от инстансах непосредственно из Yandex Cloud выводящего данные в формате json, отредактирован сценарий для использования этого сценария
-отредактирован файл ansible.cfg, для использания динамического inventory
+ссылки:
+- https://docs.ansible.com/ansible/devel/user_guide/vault.html
+- https://docs.github.com/en/actions/learn-github-actions/environment-variables
+- https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsuses
+
+- https://medium.com/swlh/how-i-create-my-first-action-and-deployed-to-github-actions-marketplace-8ca519be1ef7
+- https://github.com/marketplace/actions/create-json
+  (после создания json необходимо выполнить коммит для дальнейшего использования)
+
+#================== +++++ =================== 
+#Ansible - 2
+
+1. Подготовлен playbook со сценирием установки тестового приложения
+2. Подготовлено несколько сценариев с разбиением задач по блокам
+3. Основной playbook разбит на несколько
+4. добавлено использование terraform-inventory c github, вснесены исправления в файлы  playbook
+5. созданы playbook-и для заменты bash-скриптов provision
+6. Выполнена проверки работоспособности приложения
 
 #================== +++++ ===================
 #Ansible - 1
+
 1. Установка python 2.7
 2. Установка ansible
 3. Создание inventory файла, проверка подключения к хостам с испоьзованием inventory
@@ -31,16 +50,10 @@
 5. Проверка выполнения операций с группами хостов
 6. Подготовка YANL inventory
 7. Проверка выполнения комманд с использованием модулей command, shell, git, systemd, service
-8. Создание playbook, тестирование выполнения задач с использованием playbook
-      (при выполнении задания изменилось состояние признака changed = 1)
-9. создан файл inventory.json и bash сценарий для его использования
-      содержание сценария:
-                          #! bin/bash
-                          cat ./inventory.json
-10. создан сценаний на python для получения данных от инстансах непосредственно из Yandex Cloud
-    выводящего данные в формате json, отредактирован сценарий для использования этого сценария
+8. Создание playbook, тестирование выполнения задач с использованием playbook (при выполнении задания изменилось состояние признака changed = 1)
+9. создан файл inventory.json и bash сценарий для его использования содержание сценария: #! bin/bash cat ./inventory.json
+10. создан сценаний на python для получения данных от инстансах непосредственно из Yandex Cloud выводящего данные в формате json, отредактирован сценарий для использования этого сценария
 11. отредактирован файл ansible.cfg, для использания динамического inventory
-
 
 #================== +++++ ===================
 #Terraform - 2
