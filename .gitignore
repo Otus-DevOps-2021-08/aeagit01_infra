@@ -11,6 +11,7 @@ createinst.sh
 .keys
 .vscode
 repo*/
+*.retry
 terraform*/*
 *.lock.hcl*
 .gitignore
@@ -18,6 +19,13 @@ packer/variables.json
 last_etag=
 recursive=
 wait_for_change=
-
 create-service-acc.sh
 terraform/stage/variables.tf
+terraform/modules/app/variables.tf
+terraform/stage/.terraform.lock.hcl
+terraform/modules/db/main.tf
+terraform/modules/app/variables.tf
+.gitignore
+terraform/stage/main.tf
+jdauphant.nginx
+vault.key
