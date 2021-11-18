@@ -1,8 +1,27 @@
 # aeagit01_infra
 
 MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?branch=main) *** PR:![event parameter](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?event=pull_request)
+#================== +++++ ===================
+Ansible - 4
 
-#================== +++++ =================== 
+
+
+
+test
+https://testinfra.readthedocs.io/en/latest/modules.html#iptables
+https://github.com/pytest-dev/pytest-testinfra/blob/master/test/test_modules.py
+
+molecule playbook
+WARNING  playbook.yml was deprecated, rename it to converge.yml
+
+Ошибка ERROR    Computed fully qualified role name of my-new-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+https://githubmemory.com/index.php/@theguy147
+
+Установка дополнительных драйверов (ставил драйвер vagrant)
+https://molecule.readthedocs.io/en/latest/installation.html?highlight=driver%20vagrant#install
+
+#================== +++++ ===================
 #Ansible - 3
 1. Создание каталого ролей app и db  в соотвествии с форматом ansible-galaxy
 2. настрока роди db
@@ -30,7 +49,7 @@ MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infr
 - https://github.com/marketplace/actions/create-json
   (после создания json необходимо выполнить коммит для дальнейшего использования)
 
-#================== +++++ =================== 
+#================== +++++ ===================
 #Ansible - 2
 
 1. Подготовлен playbook со сценирием установки тестового приложения

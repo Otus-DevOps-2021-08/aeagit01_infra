@@ -29,3 +29,10 @@ terraform/modules/app/variables.tf
 terraform/stage/main.tf
 jdauphant.nginx
 vault.key
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache

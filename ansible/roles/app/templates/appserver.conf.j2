@@ -1,0 +1,10 @@
+# nginx gonfig templ
+upstream backend {
+  server 10.10.10.20;
+}
+server {
+  server_name appserver;
+  location / {
+    proxy_pass http://127.0.0.1:9292;
+  }
+}

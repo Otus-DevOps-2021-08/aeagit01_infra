@@ -1,5 +1,6 @@
 - name: "Configure app host"
-  hosts: module_app_app
+#module_app_
+  hosts: app
   become: true
 
   roles:
