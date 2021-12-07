@@ -1,11 +1,11 @@
-/* terraform {
+terraform {
   required_providers {
     yandex = {
       source  = "yandex-cloud/yandex"
       version = "~> 0.35"
     }
   }
-} */
+}
 resource "yandex_compute_instance" "app" {
   #count = var.count_of_inst
   #name = "reddit-app${count.index}"
