@@ -55,7 +55,8 @@ production:
   stage: production
   when: manual
   script:
-    - echo 'Deploy production'
+    - echo 'Deploy production job'
+
   environment:
     name: production
     url: http://example.com
