@@ -45,6 +45,8 @@ stagging:
   when: manual
   script:
     - echo 'Deploy stage'
+  only:
+    - /^\d+\.\d+\.\d+/
   environment:
     name: beta
     url: http://beta.example.com
