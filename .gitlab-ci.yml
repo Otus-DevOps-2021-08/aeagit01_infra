@@ -54,8 +54,6 @@ stagging:
 production:
   stage: production
   when: manual
-  only:
-    - /^\d+\.\d+\.\d+/
   script:
     - echo 'Deploy production job with tag'
   environment:
