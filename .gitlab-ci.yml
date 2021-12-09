@@ -44,7 +44,7 @@ stagging:
   stage: stage
   when: manual
   script:
-    - echo 'Deploy stage job'
+    - echo 'Deploy stage job with tag'
 
   only:
     - /^\d+\.\d+\.\d+/
