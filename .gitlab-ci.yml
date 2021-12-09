@@ -56,7 +56,7 @@ production:
   stage: production
   when: manual
   script:
-    - echo 'Deploy production job'
+    - echo 'Deploy production job with tag'
 
   environment:
     name: production
