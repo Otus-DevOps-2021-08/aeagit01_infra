@@ -9,9 +9,10 @@ ycip=$(yc compute instance create \
 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1804-lts,size=50 \
 --ssh-key ~/.ssh/appuser.pub|grep -E '([[:space:]]{5})(address:[[:space:]])'| grep -Eo1 '(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})')
 
-docker-machine create --driver generic \
---generic-ip-address=$ycip \
---generic-ssh-user yc-user \
---generic-ssh-key ~/.ssh/appuser docker-host
+echo $ycip
+# docker-machine create --driver generic \
+# --generic-ip-address=$ycip \
+# --generic-ssh-user yc-user \
+# --generic-ssh-key ~/.ssh/appuser docker-host
 
-eval $(docker-machine env docker-host)
+# eval $(docker-machine env docker-host)

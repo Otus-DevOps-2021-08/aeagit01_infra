@@ -1,0 +1,52 @@
+---
+- name: works with gitlab ci
+  hosts: all
+  become: true
+  vars_files:
+    - ../gitlab_vars.yml
+  tasks:
+  - name: Istall packages
+    apt:
+      update_cache: yes
+      name: "{{ item }}"
+    with_items:
+      - python3
+      - python3-pip
+      - docker.io
+  - name: Install python docker module
+    pip:
+      name: docker
+      state: present
+  - name: Ensure docker deamon is running
+    service:
+      name: docker
+      state: started
+    become: true
+
+  - name: Create working directories
+    file: path={{ item }} recurse=yes state=directory
+    with_items:
+      - "{{ host_config_dir }}"
+      - "{{ host_logs_dir }}"
+      - "{{ host_data_dir }}"
+
+  - name: Install gitlab-ce
+    community.docker.docker_container:
+      name: gitlab-ci
+      image: "gitlab/gitlab-ce:{{ gitlab_version }}"
+      state: started
+      restart_policy: always
+      ports:
+        - "{{ host_http_port }}:80"
+        - "{{ host_https_port }}:443"
+        - "{{ host_ssh_port }}:22"
+      volumes:
+        - "{{ host_config_dir }}:/etc/gitlab"
+        - "{{ host_logs_dir }}:/var/log/gitlab"
+        - "{{ host_data_dir }}:/var/opt/gitlab"
+      env:
+        GITLAB_OMNIBUS_CONFIG: |
+                                external_url 'http://{{ host_ip_address }}'
+        GITLAB_ROOT_PASSWORD:  "{{ gitlab_root_password }}"
+
+#hostname: 'gitlab.example.com'
