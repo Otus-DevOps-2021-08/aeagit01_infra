@@ -6,12 +6,12 @@ eval $(docker-machine env docker-host)
 # /srv/gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
 
 docker exec -it gitlab-runner gitlab-runner register \
- --url http://51.250.3.26/ \
+ --url http://<external_ip>/ \
  --non-interactive \
  --locked=false \
  --name DockerRunner \
  --executor docker \
  --docker-image alpine:latest \
- --registration-token Sqxv5uKAZsoMn7Dhtzky \
+ --registration-token <Token> \
  --tag-list "linux,xenial,ubuntu,docker" \
  --run-untagged
