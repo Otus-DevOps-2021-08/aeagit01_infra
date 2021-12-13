@@ -1,8 +1,7 @@
 ---
 - name: Clone
-  hosts: module_app_app
-
-  tasks:
+ hosts: module_app_app
+ tasks:
     - name: Clone repo
       git:
         repo: https://github.com/express42/reddit.git

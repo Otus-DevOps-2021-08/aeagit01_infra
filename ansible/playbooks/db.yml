@@ -1,6 +1,7 @@
 ---
 - name: Install and configure MongoDB
-  hosts: module_db_db
+#module_db_
+  hosts: db
   become: true
 
   roles:

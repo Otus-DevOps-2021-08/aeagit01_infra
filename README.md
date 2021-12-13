@@ -1,8 +1,60 @@
 # aeagit01_infra
 
 MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?branch=main) *** PR:![event parameter](https://github.com/Otus-DevOps-2021-08/aeagit01_infra/actions/workflows/run-tests.yml/badge.svg?event=pull_request)
+#================== +++++ ===================
+#gitlab-ci-1
 
-#================== +++++ =================== 
+1. Подготовил и запустил машину с установленным докером для развертывания Citlab-CI
+2. Подготовил файл docker-compose.yml для запуска контейнера с Gitlab-CI
+3. Запустил контецнер и проверили работу
+4. Для автоматизации развертывания подготовлен плэйбук gitlab-ci.yml
+5. Создал группу, проект.
+6. Определение CI/CD Pipeline, отправка изменений на gitlab
+7. Добавлен, зарегистрирован runner
+8. проверка работы пайплайна при различных условиях
+9. Проверка работы с окружениями
+10. Проверка выполнения пайплайна с условиями и ограничениями
+11. Тестирование работы с динамическим окружением
+
+
+В текущем образе парольдля root генерируется автоматически, посмотреть можно в файле
+/srv/gitlab/config/initial_root_password:
+
+#+++ initial_root_password ++++                                                                                             WARNING: This value is valid only in the following conditions
+ 1. If provided manually (either via `GITLAB_ROOT_PASSWORD` environment variable or via `gitlab_rails['initial_root_password']` setting in `gitlab.rb`, it was provided before database was seeded
+ 2. Password hasn't been changed manually, either via UI or via command line.
+If the password shown here doesn't work, you must reset the admin password following https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password.
+
+Password: INITIAL_PASSWORD
+NOTE: This file will be automatically deleted in the first reconfigure run after 24 hours.
+#+++EOF++++
+
+Задать собственный пароль можно используя переменную окружения GITLAB_ROOT_PASSWORD или
+создав файл /etc/gitlab/gitlab.rb в котором определяем:
+gitlab_rails['initial_root_password'] = '<my_strong_password>'
+
+
+#================== +++++ ===================
+#Ansible-4
+
+
+
+
+test
+https://testinfra.readthedocs.io/en/latest/modules.html#iptables
+https://github.com/pytest-dev/pytest-testinfra/blob/master/test/test_modules.py
+
+molecule playbook
+WARNING  playbook.yml was deprecated, rename it to converge.yml
+
+Ошибка ERROR    Computed fully qualified role name of my-new-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+https://githubmemory.com/index.php/@theguy147
+
+Установка дополнительных драйверов (ставил драйвер vagrant)
+https://molecule.readthedocs.io/en/latest/installation.html?highlight=driver%20vagrant#install
+
+#================== +++++ ===================
 #Ansible - 3
 1. Создание каталого ролей app и db  в соотвествии с форматом ansible-galaxy
 2. настрока роди db
@@ -30,7 +82,7 @@ MN:![branch parameter main](https://github.com/Otus-DevOps-2021-08/aeagit01_infr
 - https://github.com/marketplace/actions/create-json
   (после создания json необходимо выполнить коммит для дальнейшего использования)
 
-#================== +++++ =================== 
+#================== +++++ ===================
 #Ansible - 2
 
 1. Подготовлен playbook со сценирием установки тестового приложения

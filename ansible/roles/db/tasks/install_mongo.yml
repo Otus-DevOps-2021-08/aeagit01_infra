@@ -1,0 +1,29 @@
+
+- name: Add APT repository
+  apt_repository:
+    repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
+#    validate_certs: no
+    state: present
+  tags: install
+
+- name: Add APT key
+  apt_key:
+   url: "https://www.mongodb.org/static/pgp/server-5.0.asc"
+   state: present
+  #  id: 7F0CEB10
+  #  keyserver: keyserver.ubuntu.com
+  tags: install
+
+- name: Install mongodb package
+  apt:
+    name: mongodb-org
+    allow_unauthenticated: yes
+    state: present
+  tags: install
+
+- name: Configure service supervisor
+  systemd:
+    name: mongod
+    enabled: yes
+    state: started
+  tags: install
