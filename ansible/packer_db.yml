@@ -2,25 +2,32 @@
 - name: Install and configure MongoDB
   hosts: all
   become: true
-  tasks:
-  - name: Set key
-    apt_key:
-      id:
-      keyserver: keyserver.ubuntu.com
-  - name: Get MongoDB package
-    apt_repository:
-      repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
-      state: present
+  pre_tasks:
+    - name: Pause befo 45 sec
+      pause:
+        seconds: "45"
+  roles:
+    - db
 
-  - name: install mongoDB
-    apt:
-      name: mongodb-org
-      state: present
+  # tasks:
+  # - name: Set key
+  #   apt_key:
+  #     id:
+  #     keyserver: keyserver.ubuntu.com
+  # - name: Get MongoDB package
+  #   apt_repository:
+  #     repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
+  #     state: present
 
-  - name: Config service MongoDB
-    systemd:
-      name: mongod
-      enabled: yes
+  # - name: install mongoDB
+  #   apt:
+  #     name: mongodb-org
+  #     state: present
+
+  # - name: Config service MongoDB
+  #   systemd:
+  #     name: mongod
+  #     enabled: yes
 
 # wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
 # echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list
