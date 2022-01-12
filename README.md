@@ -37,9 +37,20 @@ gitlab_rails['initial_root_password'] = '<my_strong_password>'
 #================== +++++ ===================
 #Ansible-4
 
+1. Установка VirtualBox и Vagrant
+2. Подготовка Vagrantfile для настройки и запуска витруальных машин согласно заданию
+3. Запуск и проверка работы виртуалок, созданных с помощью vagrant
+4. Доработка ролей db и app
+5. Проверка работы ролей и переделка для использования параметров
+6. Настройка проксирования приложения с использованием nginx
+7. Настройка Molecule, Testinfra для выполнения проверки конфигурации и тестирования
+8. Подготовка тестовой машины  использованием Molecule
+9. Тестирование функционала Molecule и Testinfra согласно заданию
+10. Доработка тестирования роли db - проверка открытого порта 27017
+11. Доработка packer_db.yml и packer_app.yml для использования ролей
+12. Вынесение роли db в отдельный репозиторий и подключение ее через requirements.yml
 
-
-
+===
 test
 https://testinfra.readthedocs.io/en/latest/modules.html#iptables
 https://github.com/pytest-dev/pytest-testinfra/blob/master/test/test_modules.py

@@ -2,10 +2,14 @@
 - name: Install Ruby and Bundle
   hosts: all
   become: true
-  tasks:
-  - name: Install packages
-    apt: "name={{ item }} state=present"
-    whith_item:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
+
+  roles:
+    - app
+
+  # tasks:
+  # - name: Install packages
+  #   apt: "name={{ item }} state=present"
+  #   whith_item:
+  #     - ruby-full
+  #     - ruby-bundler
+  #     - build-essential
